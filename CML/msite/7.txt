@@ -1,0 +1,97 @@
+Site1-BGW1:
+=====
+route-map rmap-redist-direct permit 10
+  match tag 54321
+evpn multisite border-gateway 65111
+  delay-restore time 300
+router bgp 65111
+  address-family ipv4 unicast
+    redistribute direct route-map rmap-redist-direct
+    exit
+  neighbor 10.2.2.5
+    remote-as 65333
+    update-source loopback0
+    ebgp-multihop 5
+    peer-type fabric-external
+    address-family l2vpn evpn
+      send-community both
+      rewrite-evpn-rt-asn
+configure terminal
+interface nve1
+  multisite border-gateway interface loopback100
+interface loopback100
+  ip address 100.10.0.1/32 tag 54321
+  ip router ospf UNDERLAY area 0.0.0.0
+  ip pim sparse-mode
+  no shutdown
+interface ethernet1/1
+  no switchport
+  ip address 10.4.0.11/31
+  evpn multisite fabric-tracking
+  description connected-to-Site1-Spine1-Ethernet1/3
+  mtu 9216
+  ip router ospf UNDERLAY area 0.0.0.0
+  ip ospf network point-to-point
+  ip pim sparse-mode
+  no shutdown
+interface ethernet1/2
+  no switchport
+  ip address 10.4.0.9/31
+  evpn multisite fabric-tracking
+  description connected-to-Site1-Spine2-Ethernet1/3
+  mtu 9216
+  ip router ospf UNDERLAY area 0.0.0.0
+  ip ospf network point-to-point
+  ip pim sparse-mode
+  no shutdown
+configure terminal
+
+
+
+Site2-BGW1:
+=====
+route-map rmap-redist-direct permit 10
+  match tag 54321
+evpn multisite border-gateway 65222
+  delay-restore time 300
+router bgp 65333
+  address-family ipv4 unicast
+    redistribute direct route-map rmap-redist-direct
+    exit
+  neighbor 10.2.1.2
+    remote-as 65111
+    update-source loopback0
+    ebgp-multihop 5
+    peer-type fabric-external
+    address-family l2vpn evpn
+      send-community both
+      rewrite-evpn-rt-asn
+configure terminal
+interface nve1
+  multisite border-gateway interface loopback100
+interface loopback100
+  ip address 100.10.0.2/32 tag 54321
+  ip router ospf UNDERLAY area 0.0.0.0
+  ip pim sparse-mode
+  no shutdown
+interface ethernet1/1
+  no switchport
+  ip address 10.5.0.9/31
+  evpn multisite fabric-tracking
+  description connected-to-Site2-Spine1-Ethernet1/3
+  mtu 9216
+  ip router ospf UNDERLAY area 0.0.0.0
+  ip ospf network point-to-point
+  ip pim sparse-mode
+  no shutdown
+interface ethernet1/2
+  no switchport
+  ip address 10.5.0.11/31
+  evpn multisite fabric-tracking
+  ip pim sparse-mode
+  no shutdown
+  description connected-to-Site2-Spine2-Ethernet1/3
+  mtu 9216
+  ip router ospf UNDERLAY area 0.0.0.0
+  ip ospf network point-to-point
+configure terminal

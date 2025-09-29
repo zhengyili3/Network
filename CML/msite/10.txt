@@ -1,0 +1,146 @@
+ISN1：
+=====
+interface ethernet1/1
+  no switchport
+  ip address 12.1.1.0/31 tag 54321
+  mtu 9216
+  no shutdown
+interface ethernet1/2
+  no switchport
+  ip address 12.1.1.2/31 tag 54321
+  mtu 9216
+  no shutdown
+router bgp 65222
+  address-family ipv4 unicast
+    maximum-paths 64
+    maximum-paths ibgp 64
+    exit
+  address-family ipv6 unicast
+    maximum-paths 64
+    maximum-paths ibgp 64
+    exit
+  neighbor 12.1.1.1
+    remote-as 65111
+    update-source Ethernet1/1
+    address-family ipv4 unicast
+      next-hop-self
+      exit
+    exit
+  neighbor 12.1.1.3
+    remote-as 65333
+    update-source Ethernet1/2
+    address-family ipv4 unicast
+      next-hop-self
+configure terminal
+
+
+ISN2:
+=====
+interface ethernet1/1
+  no switchport
+  ip address 12.1.2.0/31 tag 54321
+  mtu 9216
+  no shutdown
+interface ethernet1/2
+  no switchport
+  ip address 12.1.2.2/31 tag 54321
+  mtu 9216
+  no shutdown
+router bgp 65222
+  address-family ipv4 unicast
+    maximum-paths 64
+    maximum-paths ibgp 64
+    exit
+  address-family ipv6 unicast
+    maximum-paths 64
+    maximum-paths ibgp 64
+    exit
+  neighbor 12.1.2.1
+    remote-as 65111
+    update-source Ethernet1/1
+    address-family ipv4 unicast
+      next-hop-self
+      exit
+    exit
+  neighbor 12.1.2.3
+    remote-as 65333
+    update-source Ethernet1/2
+    address-family ipv4 unicast
+      next-hop-self
+configure terminal
+
+
+Site1-BGW1:
+=====
+interface ethernet1/3
+  no switchport
+  ip address 12.1.1.1/31 tag 54321
+  evpn multisite dci-tracking
+  mtu 9216
+  no shutdown
+interface ethernet1/4
+  no switchport
+  ip address 12.1.2.1/31 tag 54321
+  evpn multisite dci-tracking
+  mtu 9216
+  no shutdown
+router bgp 65111
+  address-family ipv4 unicast
+    maximum-paths 64
+    maximum-paths ibgp 64
+    exit
+  address-family ipv6 unicast
+    maximum-paths 64
+    maximum-paths ibgp 64
+    exit
+  neighbor 12.1.1.0
+    remote-as 65222
+    update-source Ethernet1/3
+    address-family ipv4 unicast
+      next-hop-self
+      exit
+    exit
+  neighbor 12.1.2.0
+    remote-as 65222
+    update-source Ethernet1/4
+    address-family ipv4 unicast
+      next-hop-self
+configure terminal
+
+
+Site2-BGW1:
+=====
+interface ethernet1/3
+  no switchport
+  ip address 12.1.1.3/31 tag 54321
+  evpn multisite dci-tracking
+  mtu 9216
+  no shutdown
+interface ethernet1/4
+  no switchport
+  ip address 12.1.2.3/31 tag 54321
+  evpn multisite dci-tracking
+  mtu 9216
+  no shutdown
+router bgp 65333
+  address-family ipv4 unicast
+    maximum-paths 64
+    maximum-paths ibgp 64
+    exit
+  address-family ipv6 unicast
+    maximum-paths 64
+    maximum-paths ibgp 64
+    exit
+  neighbor 12.1.1.2
+    remote-as 65222
+    update-source Ethernet1/3
+    address-family ipv4 unicast
+      next-hop-self
+      exit
+    exit
+  neighbor 12.1.2.2
+    remote-as 65222
+    update-source Ethernet1/4
+    address-family ipv4 unicast
+      next-hop-self
+configure terminal
