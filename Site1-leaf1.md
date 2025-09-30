@@ -39,6 +39,8 @@ Neighbor        T    AS Type-1     Type-2     Type-3     Type-4     Type-5     T
 10.2.1.5        I 65111 0          4          0          0          1          0          0          0          0     
 
 ```
+
+```
 Site1-Leaf1# show nve peers
 Interface Peer-IP                                 State LearnType Uptime   Router-Mac       
 --------- --------------------------------------  ----- --------- -------- -----------------
