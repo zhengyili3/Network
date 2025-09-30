@@ -6,15 +6,17 @@ This document describes how to configure Nexus 9000v VXLAN EVPN Multisite deploy
 ## Requirements
 
 Cisco recommends that you have knowledge of these topics:
-    NDFC
-    Multi-Site VXLAN EVPN
-    CML simulator
+NDFC
+
+Multi-Site VXLAN EVPN
+
+CML simulator
 
 ## Components Used
-CML 2.8
-Virtual Nexus Dashboard 3.2.2f
-NDFC 12.2.3
-N9000v 10.5(3f)
+1. CML 2.8
+2. Virtual Nexus Dashboard 3.2.2f
+3. NDFC 12.2.3
+4. N9000v 10.5(3f)
 
 
 # Configure
@@ -29,9 +31,9 @@ N9000v 10.5(3f)
 
 ## Configurations
 ### 1/ Connect Nexus9000v OOB to NDFC
-    CML and NDFC are installed on same esxi host.
-    CML external connecter "OOB-Bridge" bridge to Nexus Dashboard Management vmnic.
-    Connect all Nexus9000v mgmt ports and "OOB-Bridge" to OOB Switch.
+1. CML and NDFC are installed on same esxi host.
+2. CML external connecter "OOB-Bridge" bridge to Nexus Dashboard Management vmnic.
+3. Connect all Nexus9000v mgmt ports and "OOB-Bridge" to OOB Switch.
 
 ### 2/ Create 2 "Data Center VXLAN EVPN" fabric on NDFC
 #### 2.1 Define "Fabric Name" & "Fabric Type" and fill in "Genernal Parameters" such as BGP AS number,Fabric Interface Numbering, Underlay Protocol and Anycast Gateway MAC
