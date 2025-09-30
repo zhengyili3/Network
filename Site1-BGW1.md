@@ -1,4 +1,5 @@
-# Site1-BGW1# show ip int brief vrf all
+```
+Site1-BGW1# show ip int brief vrf all
 
 IP Interface Status for VRF "default"(1)
 Interface            IP Address      Interface Status
@@ -20,8 +21,10 @@ Interface            IP Address      Interface Status
 IP Interface Status for VRF "green"(4)
 Interface            IP Address      Interface Status
 Vlan2300             forward-enabled protocol-up/link-up/admin-up  
+```
 
-# Site1-BGW1# show bgp l2vpn evpn summary 
+```
+Site1-BGW1# show bgp l2vpn evpn summary 
 BGP summary information for VRF default, address family L2VPN EVPN
 BGP router identifier 10.2.1.1, local AS number 65111
 BGP table version is 224, L2VPN EVPN config peers 4, capable peers 4
@@ -40,16 +43,20 @@ Neighbor        T    AS Type-1     Type-2     Type-3     Type-4     Type-5     T
 10.2.1.5        I 65111 0          4          0          0          2          0          0          0          0         
 172.16.0.1      E 65222 0          5          2          0          2          0          0          0          0         
 172.16.0.2      E 65222 0          5          2          0          2          0          0          0          0       
+```
 
-# Site1-BGW1# show nve peers
+```
+Site1-BGW1# show nve peers
 Interface Peer-IP                                 State LearnType Uptime   Router-Mac       
 --------- --------------------------------------  ----- --------- -------- -----------------
 nve1      10.3.1.2                                Up    CP        07:19:24 5205.58e4.1b08   
 nve1      10.3.1.3                                Up    CP        07:19:24 525c.f75d.1b08   
 nve1      10.3.2.3                                Up    CP        07:20:08 n/a              
 nve1      10.10.0.2                               Up    CP        07:17:44 0200.0a0a.0002   
+```
 
-# Site1-BGW1# show bgp l2vpn evpn
+```
+Site1-BGW1# show bgp l2vpn evpn
 BGP routing table information for VRF default, address family L2VPN EVPN
 BGP table version is 224, Local Router ID is 10.2.1.1
 Status: s-suppressed, x-deleted, S-stale, d-dampened, h-history, *-valid, >-best
@@ -169,3 +176,4 @@ Route Distinguisher: 10.2.1.1:4    (L3VNI 50000)
                       10.3.1.1                 0        100          0 ?
 *>l[5]:[0]:[0]:[24]:[192.168.12.0]/224
                       10.3.1.1                 0        100          0 ?
+```
