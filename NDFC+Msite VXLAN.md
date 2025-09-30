@@ -124,6 +124,7 @@ Edit other links between BGW and ISN.
 
 ### 5/ Create VRF
 #### 5.1 Create VRF
+![image](https://github.com/zhengyili3/Network/blob/main/CML/msite/12-1.png)
 
 #### 5.2 Attach VRF to Leafs and BGWs
 ![image](https://github.com/zhengyili3/Network/blob/main/CML/msite/12.png)
