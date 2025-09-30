@@ -126,18 +126,31 @@ Edit other links between BGW and ISN.
 #### 5.1 Create VRF
 
 #### 5.2 Attach VRF to Leafs and BGWs
+![image](https://github.com/zhengyili3/Network/blob/main/CML/msite/12.png)
+![image](https://github.com/zhengyili3/Network/blob/main/CML/msite/14.png)
 
 #### 5.3 Create Network
+![image](https://github.com/zhengyili3/Network/blob/main/CML/msite/15.png)
+![image](https://github.com/zhengyili3/Network/blob/main/CML/msite/16.png)
+![image](https://github.com/zhengyili3/Network/blob/main/CML/msite/18.png)
 
 #### 5.4 Attach Networks to Server Leaf
+![image](https://github.com/zhengyili3/Network/blob/main/CML/msite/19-2.png)
+![image](https://github.com/zhengyili3/Network/blob/main/CML/msite/20.png)
+![image](https://github.com/zhengyili3/Network/blob/main/CML/msite/21.png)
+![image](https://github.com/zhengyili3/Network/blob/main/CML/msite/22.png)
+![image](https://github.com/zhengyili3/Network/blob/main/CML/msite/23.png)
+![image](https://github.com/zhengyili3/Network/blob/main/CML/msite/24.png)
 
 Attach vlan 2300 to Site1&Site2 Leaf1 e1/3. Same steps attach vlan 2301 to Site1&Site2 Leaf2 e1/3
 
-
 #### 5.5 Attach Networks to BGWs
+![image](https://github.com/zhengyili3/Network/blob/main/CML/msite/27.png)
+![image](https://github.com/zhengyili3/Network/blob/main/CML/msite/28.png)
+![image](https://github.com/zhengyili3/Network/blob/main/CML/msite/29.png)
 
 ### 6/ Final Topology
-
+![image](https://github.com/zhengyili3/Network/blob/main/CML/msite/final.png)
 
 # Verify
 
@@ -149,7 +162,7 @@ Site2-Host2: 192.168.12.11
 
 
 ## 1. Intra-Site Ping
-
+```
 cisco@Site1-Host1:~$ ping 192.168.12.10 -c 5
 PING 192.168.12.10 (192.168.12.10) 56(84) bytes of data.
 64 bytes from 192.168.12.10: icmp_seq=1 ttl=62 time=10.5 ms
@@ -161,10 +174,10 @@ PING 192.168.12.10 (192.168.12.10) 56(84) bytes of data.
 --- 192.168.12.10 ping statistics ---
 5 packets transmitted, 5 received, 0% packet loss, time 4007ms
 rtt min/avg/max/mdev = 7.346/10.289/12.069/1.610 ms
-
+```
 
 ## 2. Inter-Site Ping
-
+```
 cisco@Site1-Host1:~$ ping 192.168.11.11 -c 5
 PING 192.168.11.11 (192.168.11.11) 56(84) bytes of data.
 64 bytes from 192.168.11.11: icmp_seq=1 ttl=64 time=25.5 ms
@@ -189,7 +202,7 @@ PING 192.168.12.11 (192.168.12.11) 56(84) bytes of data.
 --- 192.168.12.11 ping statistics ---
 5 packets transmitted, 5 received, 0% packet loss, time 4006ms
 rtt min/avg/max/mdev = 23.423/28.131/34.982/3.845 ms
-
+```
 
 Troubleshoot
 {show ip interface brief} - {Check both underlay/overlay interface configuration.}
