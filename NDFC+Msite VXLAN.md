@@ -206,18 +206,3 @@ PING 192.168.12.11 (192.168.12.11) 56(84) bytes of data.
 5 packets transmitted, 5 received, 0% packet loss, time 4006ms
 rtt min/avg/max/mdev = 23.423/28.131/34.982/3.845 ms
 ```
-
-Troubleshoot
-{show ip interface brief} - {Check both underlay/overlay interface configuration.}
-
-{show ip ospf neighbors} - {Check underlay ospf neighbors status.}
-
-{show ip pim neighbors} - {Check underlay PIM neighbors status.}
-
-{show nve peers} - {Check overlay nve peer status.}
-
-{show nve vni} - {Check VNI mapping and status.}
-
-{show nve interface nve 1} - {Check NVE port status.}
-
-{show bgp l2vpn evpn summary} - {Check BGP L2VPN EVPN route learning.}
