@@ -1,5 +1,4 @@
-```
-Site1-Leaf1# show ip int brief vrf all
+##### Site1-Leaf1# show ip int brief vrf all
 
 IP Interface Status for VRF "default"(1)
 Interface            IP Address      Interface Status
@@ -20,7 +19,7 @@ Interface            IP Address      Interface Status
 Vlan2300             forward-enabled protocol-up/link-up/admin-up       
 Vlan2301             192.168.11.1    protocol-up/link-up/admin-up   
 
-Site1-Leaf1# show bgp l2vpn evpn summary 
+##### Site1-Leaf1# show bgp l2vpn evpn summary 
 BGP summary information for VRF default, address family L2VPN EVPN
 BGP router identifier 10.2.1.4, local AS number 65111
 BGP table version is 79, L2VPN EVPN config peers 2, capable peers 2
@@ -36,14 +35,14 @@ Neighbor        T    AS Type-1     Type-2     Type-3     Type-4     Type-5     T
 10.2.1.2        I 65111 0          4          0          0          1          0          0          0          0         
 10.2.1.5        I 65111 0          4          0          0          1          0          0          0          0     
 
-Site1-Leaf1# show nve peers
+##### Site1-Leaf1# show nve peers
 Interface Peer-IP                                 State LearnType Uptime   Router-Mac       
 --------- --------------------------------------  ----- --------- -------- -----------------
 nve1      10.3.1.1                                Up    CP        07:19:24 n/a              
 nve1      10.3.1.2                                Up    CP        07:19:24 5205.58e4.1b08   
 nve1      10.10.0.1                               Up    CP        06:23:06 0200.0a0a.0001   
 
-Site1-Leaf1# show bgp l2vpn evpn
+##### Site1-Leaf1# show bgp l2vpn evpn
 BGP routing table information for VRF default, address family L2VPN EVPN
 BGP table version is 79, Local Router ID is 10.2.1.4
 Status: s-suppressed, x-deleted, S-stale, d-dampened, h-history, *-valid, >-best
